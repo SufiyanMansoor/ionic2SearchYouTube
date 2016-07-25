@@ -1,0 +1,24 @@
+<ion-navbar primary *navbar >
+  <ion-title>
+    Angular2 Ionic Youtube
+  </ion-title>
+</ion-navbar>
+ 
+<ion-content class="home">
+  <ion-list inset>
+    <ion-item>
+      <ion-input  [(ngModel)]="myQuery" type="text" placeholder="Search Youtube"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button light block (click)="getVideos()">Search</button>
+  </div>
+  <ion-card *ngFor="#video of myVideos" (click)="playVideo(video)">
+    <ion-card-header light>
+      {{video.snippet.title}}
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{video.snippet.thumbnails.high.url}}">
+    </ion-card-content>
+  </ion-card>
+</ion-content>
